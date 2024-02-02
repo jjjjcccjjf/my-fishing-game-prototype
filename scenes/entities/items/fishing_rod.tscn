@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlxv3hraimdrh"]
+
+[ext_resource type="Script" path="res://scenes/entities/items/fishing_rod.gd" id="1_fvarj"]
+[ext_resource type="Texture2D" uid="uid://dqy8suq2hqri0" path="res://assets/fishing_rod.png" id="1_vxutg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgums"]
+size = Vector2(10, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dhkq1"]
+radius = 144.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yere1"]
+size = Vector2(96, 96)
+
+[node name="FishingRod" type="Node2D"]
+script = ExtResource("1_fvarj")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("1_vxutg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_qgums")
+
+[node name="PickupMagnet" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupMagnet"]
+shape = SubResource("CircleShape2D_dhkq1")
+
+[node name="PickupRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupRange"]
+shape = SubResource("RectangleShape2D_yere1")
+
+[connection signal="body_entered" from="PickupMagnet" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="PickupMagnet" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="PickupRange" to="." method="_on_pickup_range_body_entered"]

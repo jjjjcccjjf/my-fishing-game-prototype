@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1xilgeedt5pj"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_8a38p"]
+[ext_resource type="PackedScene" uid="uid://67hyqxi6xmge" path="res://scenes/terrains/terrain.tscn" id="1_8vrfl"]
+[ext_resource type="PackedScene" uid="uid://cy73672urn61s" path="res://scenes/player/player.tscn" id="2_5wulq"]
+[ext_resource type="PackedScene" uid="uid://bt3plhgiwjdbd" path="res://scenes/water/water.tscn" id="3_60l5u"]
+[ext_resource type="PackedScene" uid="uid://dngnn0bqgff1h" path="res://scenes/entities/creatures/mobs/fish.tscn" id="5_ke3ie"]
+[ext_resource type="PackedScene" uid="uid://dlxv3hraimdrh" path="res://scenes/entities/items/fishing_rod.tscn" id="6_oktud"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_8a38p")
+
+[node name="Terrain" parent="." instance=ExtResource("1_8vrfl")]
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("2_5wulq")]
+position = Vector2(481, 428)
+
+[node name="Water" parent="." instance=ExtResource("3_60l5u")]
+metadata/_edit_lock_ = true
+
+[node name="Fish" parent="." instance=ExtResource("5_ke3ie")]
+motion_mode = 1
+
+[node name="Node2D" parent="." instance=ExtResource("6_oktud")]
+position = Vector2(94, 332)

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CreatureResource" load_steps=2 format=3 uid="uid://sbg7uqkikl0t"]
+
+[ext_resource type="Script" path="res://creatures/creature_resource.gd" id="1_klj5o"]
+
+[resource]
+script = ExtResource("1_klj5o")
+str_stat = 1
+dex_stat = 1
+con_stat = 1
+wis_stat = 1
+int_stat = 1
+cha_stat = 1
+hit_points = null
+stamina_points = null
+max_speed = 100
+acceleration = 1000.0
+friction = 500.0
+jump_velocity = -216
